@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Website Resmi Madrasah</title>
+
+  <meta
+    name="description"
+    content="Website resmi madrasah untuk informasi profil, program pendidikan, berita, kegiatan, dan pelayanan madrasah."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f8f6;
+      color: #1f2937;
+    }
+
+    header {
+      background: #087f5b;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand h1 {
+      font-size: 22px;
+      margin-bottom: 3px;
+    }
+
+    .brand p {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 520px;
+      padding: 90px 8%;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #e6fcf5, #ffffff);
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h2 {
+      color: #087f5b;
+      font-size: 44px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #4b5563;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button-primary {
+      background: #087f5b;
+      color: white;
+    }
+
+    .button-secondary {
+      border: 2px solid #087f5b;
+      color: #087f5b;
+      background: white;
+    }
+
+    .features {
+      padding: 60px 8%;
+      text-align: center;
+    }
+
+    .features h2 {
+      color: #087f5b;
+      margin-bottom: 35px;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+    }
+
+    .feature h3 {
+      color: #087f5b;
+      margin-bottom: 12px;
+    }
+
+    .feature p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #064e3b;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 8px;
+      }
+
+      .hero {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+
+      .hero h2 {
+        font-size: 34px;
+      }
+
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="brand">
+      <h1>Madrasah Ash-Shiddiqiyah</h1>
+      <p>Website Informasi dan Pelayanan Madrasah</p>
+    </div>
+
+    <nav>
+      #berandaBeranda</a>
+      #profilProfil</a>
+      #programProgram</a>
+      #kontakKontak</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-content">
+        <h2>Selamat Datang di Website Resmi Madrasah</h2>
+
+        <p>
+          Website ini akan menjadi pusat informasi mengenai profil madrasah,
+          program pendidikan, berita, kegiatan, pengumuman, dan pelayanan
+          kepada santri serta wali santri.
+        </p>
+
+        <div class="buttons">
+          #profil
+            Lihat Profil
+          </a>
+
+          https://app.mamuashd.my.id
+            Masuk Aplikasi
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="profil">
+      <h2>Informasi Madrasah</h2>
+
+      <div class="feature-list">
+        <article class="feature">
+          <h3>Profil Madrasah</h3>
+          <p>
+            Informasi mengenai sejarah, visi, misi, struktur, dan tenaga
+            pendidik madrasah.
+          </p>
+        </article>
+
+        <article class="feature" id="program">
+          <h3>Program Pendidikan</h3>
+          <p>
+            Informasi program pembelajaran, kegiatan santri, tahfiz,
+            dan pendidikan keagamaan.
+          </p>
+        </article>
+
+        <article class="feature" id="kontak">
+          <h3>Pelayanan Madrasah</h3>
+          <p>
+            Informasi pengumuman, jadwal kegiatan, kontak, dan pelayanan
+            administrasi madrasah.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Madrasah Ash-Shiddiqiyah. Semua hak dilindungi.</p>
+  </footer>
+</body>
+</html>
