@@ -3,244 +3,349 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Website Resmi Madrasah</title>
-
-  <meta
-    name="description"
-    content="Website resmi madrasah untuk informasi profil, program pendidikan, berita, kegiatan, dan pelayanan madrasah."
-  >
-
+  <meta name="theme-color" content="#075e54">
+  <meta name="description" content="Website resmi Madrasah Aliyah Manba'ul Ulum Pondok Pesantren Asshiddiqiyah Jakarta.">
+  <title>MA Manba'ul Ulum | Pondok Pesantren Asshiddiqiyah Jakarta</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --primary: #075e54;
+      --primary-2: #128c7e;
+      --primary-dark: #064e46;
+      --accent: #d5a932;
+      --accent-light: #f7ecc9;
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --text: #202b33;
+      --muted: #667085;
+      --border: #e5e7eb;
+      --shadow: 0 16px 40px rgba(6, 78, 70, .10);
+      --radius: 18px;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f8f6;
-      color: #1f2937;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, Helvetica, sans-serif; color: var(--text); background: var(--bg); line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; }
+    .container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: 82px 0; }
+    .eyebrow { color: var(--primary-2); font-weight: 800; text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; }
+    .section-title { margin-top: 8px; font-size: clamp(1.85rem, 4vw, 2.75rem); line-height: 1.2; color: var(--primary-dark); }
+    .section-lead { margin-top: 15px; color: var(--muted); max-width: 720px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 11px 19px; border-radius: 10px; border: 1px solid transparent; font-weight: 800; transition: .2s ease; cursor: pointer; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: #2f270f; box-shadow: 0 10px 25px rgba(213, 169, 50, .28); }
+    .btn-outline { border-color: rgba(255,255,255,.5); color: #fff; background: rgba(255,255,255,.08); }
+    .btn-green { background: var(--primary); color: #fff; }
+
+    .topbar { background: var(--primary-dark); color: rgba(255,255,255,.9); font-size: .84rem; }
+    .topbar-inner { min-height: 38px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .topbar-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    .header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(229,231,235,.9); }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: flex; align-items: center; gap: 13px; min-width: 290px; }
+    .brand-mark { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg,var(--primary),var(--primary-2)); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 1.15rem; border: 3px solid #e4f4ef; box-shadow: 0 5px 18px rgba(7,94,84,.22); }
+    .brand strong { display: block; color: var(--primary-dark); line-height: 1.15; font-size: 1rem; }
+    .brand small { color: var(--muted); font-size: .72rem; }
+    .nav-links { display: flex; align-items: center; gap: 22px; list-style: none; }
+    .nav-links a { font-weight: 700; font-size: .91rem; color: #32433f; }
+    .nav-links a:hover { color: var(--primary-2); }
+    .menu-toggle { display: none; border: 0; background: var(--primary); color: #fff; border-radius: 9px; padding: 9px 12px; cursor: pointer; }
+
+    .hero { position: relative; overflow: hidden; color: #fff; background: linear-gradient(120deg, rgba(6,78,70,.98), rgba(18,140,126,.88)); }
+    .hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(213,169,50,.24), transparent 25%), radial-gradient(circle at 75% 90%, rgba(255,255,255,.10), transparent 30%); }
+    .hero::after { content: ""; position: absolute; right: -100px; top: 50px; width: 430px; height: 430px; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; box-shadow: 0 0 0 65px rgba(255,255,255,.035), 0 0 0 130px rgba(255,255,255,.025); }
+    .hero-inner { position: relative; z-index: 2; min-height: 620px; display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 55px; padding: 70px 0; }
+    .hero-kicker { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); font-size: .82rem; font-weight: 800; letter-spacing: .04em; }
+    .hero h1 { margin-top: 18px; font-size: clamp(2.6rem, 6vw, 5.1rem); line-height: .98; letter-spacing: -.045em; }
+    .hero h1 span { display: block; color: #f5d978; }
+    .hero-text { margin-top: 24px; max-width: 760px; color: rgba(255,255,255,.87); font-size: 1.08rem; }
+    .hero-actions { margin-top: 31px; display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-panel { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); border-radius: 24px; padding: 27px; backdrop-filter: blur(8px); box-shadow: 0 24px 60px rgba(0,0,0,.18); }
+    .hero-panel .label { font-size: .78rem; text-transform: uppercase; letter-spacing: .12em; color: #f5d978; font-weight: 800; }
+    .hero-panel h2 { margin-top: 8px; font-size: 1.6rem; line-height: 1.25; }
+    .hero-panel p { margin-top: 10px; color: rgba(255,255,255,.8); }
+    .hero-list { margin-top: 20px; display: grid; gap: 12px; }
+    .hero-list div { display: flex; gap: 11px; align-items: flex-start; }
+    .check { flex: 0 0 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: #2f270f; font-weight: 900; font-size: .8rem; }
+
+    .quick-info { margin-top: -42px; position: relative; z-index: 5; }
+    .quick-grid { display: grid; grid-template-columns: repeat(3,1fr); border-radius: var(--radius); overflow: hidden; background: var(--surface); box-shadow: var(--shadow); }
+    .quick-card { padding: 26px; display: flex; gap: 15px; align-items: center; border-right: 1px solid var(--border); }
+    .quick-card:last-child { border-right: 0; }
+    .quick-icon { width: 48px; height: 48px; border-radius: 13px; display: grid; place-items: center; background: #e7f5f1; color: var(--primary); font-weight: 900; }
+    .quick-card small { color: var(--muted); display: block; }
+    .quick-card strong { color: var(--primary-dark); }
+
+    .welcome-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 52px; align-items: center; }
+    .photo-placeholder { min-height: 470px; border-radius: 26px; position: relative; overflow: hidden; display: grid; place-items: center; text-align: center; padding: 40px; color: rgba(255,255,255,.9); background: linear-gradient(145deg,#0b6b60,#083f3a); box-shadow: var(--shadow); }
+    .photo-placeholder::before { content: ""; position: absolute; inset: 0; background: linear-gradient(35deg,transparent 40%,rgba(255,255,255,.08)); }
+    .photo-placeholder .inner { position: relative; z-index: 1; }
+    .photo-placeholder .initials { width: 112px; height: 112px; margin: auto; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.3); color: #f5d978; font-size: 2rem; font-weight: 900; }
+    .photo-placeholder p { margin-top: 18px; max-width: 360px; }
+    .signature { margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .signature strong { color: var(--primary-dark); display: block; }
+    .signature small { color: var(--muted); }
+
+    .stats { background: var(--primary-dark); color: #fff; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); }
+    .stat { padding: 34px 25px; text-align: center; border-right: 1px solid rgba(255,255,255,.14); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; color: #f5d978; font-size: 2.25rem; line-height: 1.1; }
+    .stat span { display: block; margin-top: 7px; color: rgba(255,255,255,.78); font-size: .9rem; }
+
+    .advantages { background: #fff; }
+    .cards-grid { margin-top: 36px; display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .info-card { padding: 28px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); box-shadow: 0 10px 28px rgba(18, 46, 41, .06); transition: .2s ease; }
+    .info-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .card-icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: #e7f5f1; color: var(--primary); font-size: 1.15rem; font-weight: 900; }
+    .info-card h3 { margin-top: 18px; color: var(--primary-dark); }
+    .info-card p { margin-top: 10px; color: var(--muted); font-size: .94rem; }
+
+    .programs { background: var(--bg); }
+    .program-grid { margin-top: 36px; display: grid; grid-template-columns: repeat(2,1fr); gap: 22px; }
+    .program { min-height: 195px; padding: 29px; border-radius: var(--radius); color: #fff; background: linear-gradient(135deg,var(--primary),var(--primary-2)); position: relative; overflow: hidden; }
+    .program:nth-child(2), .program:nth-child(3) { background: linear-gradient(135deg,#123d37,#0b6b60); }
+    .program::after { content: ""; position: absolute; right: -35px; bottom: -55px; width: 180px; height: 180px; border-radius: 50%; background: rgba(255,255,255,.08); }
+    .program h3, .program p, .program a { position: relative; z-index: 1; }
+    .program p { margin-top: 9px; color: rgba(255,255,255,.8); max-width: 510px; }
+    .program a { display: inline-block; margin-top: 18px; color: #f5d978; font-weight: 800; }
+
+    .news-grid { margin-top: 36px; display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .news-card { background: #fff; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(18,46,41,.06); }
+    .news-image { height: 185px; display: grid; place-items: center; text-align: center; padding: 20px; color: rgba(255,255,255,.9); background: linear-gradient(135deg,#075e54,#128c7e); }
+    .news-card:nth-child(2) .news-image { background: linear-gradient(135deg,#7d6420,#d5a932); }
+    .news-card:nth-child(3) .news-image { background: linear-gradient(135deg,#173f3a,#347f75); }
+    .news-body { padding: 23px; }
+    .news-meta { color: var(--primary-2); font-size: .78rem; font-weight: 800; text-transform: uppercase; }
+    .news-body h3 { margin-top: 7px; color: var(--primary-dark); line-height: 1.35; }
+    .news-body p { margin-top: 9px; color: var(--muted); font-size: .92rem; }
+
+    .cta { padding: 72px 0; background: linear-gradient(120deg,var(--primary-dark),var(--primary-2)); color: #fff; }
+    .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .cta h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); line-height: 1.2; }
+    .cta p { margin-top: 10px; color: rgba(255,255,255,.78); max-width: 700px; }
+    .cta-actions { display: flex; gap: 11px; flex-wrap: wrap; }
+
+    .footer { background: #073e38; color: rgba(255,255,255,.8); padding: 65px 0 25px; }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr .75fr .9fr; gap: 55px; }
+    .footer h3 { color: #fff; margin-bottom: 14px; }
+    .footer p, .footer li { font-size: .92rem; }
+    .footer ul { list-style: none; display: grid; gap: 8px; }
+    .footer a:hover { color: #f5d978; }
+    .copyright { margin-top: 43px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.12); display: flex; justify-content: space-between; gap: 20px; font-size: .82rem; }
+
+    @media (max-width: 960px) {
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 78px; left: 20px; right: 20px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); flex-direction: column; align-items: stretch; }
+      .nav-links.open { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-panel { max-width: 620px; }
+      .quick-grid, .cards-grid, .news-grid { grid-template-columns: 1fr; }
+      .quick-card { border-right: 0; border-bottom: 1px solid var(--border); }
+      .quick-card:last-child { border-bottom: 0; }
+      .welcome-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .stat:nth-child(2) { border-right: 0; }
+      .stat:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,.14); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid > :first-child { grid-column: 1/-1; }
+      .cta-inner { flex-direction: column; align-items: flex-start; }
     }
 
-    header {
-      background: #087f5b;
-      color: white;
-      padding: 20px 8%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand h1 {
-      font-size: 22px;
-      margin-bottom: 3px;
-    }
-
-    .brand p {
-      font-size: 13px;
-      opacity: 0.9;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 14px;
-    }
-
-    .hero {
-      min-height: 520px;
-      padding: 90px 8%;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, #e6fcf5, #ffffff);
-    }
-
-    .hero-content {
-      max-width: 700px;
-    }
-
-    .hero h2 {
-      color: #087f5b;
-      font-size: 44px;
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      color: #4b5563;
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 30px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .button-primary {
-      background: #087f5b;
-      color: white;
-    }
-
-    .button-secondary {
-      border: 2px solid #087f5b;
-      color: #087f5b;
-      background: white;
-    }
-
-    .features {
-      padding: 60px 8%;
-      text-align: center;
-    }
-
-    .features h2 {
-      color: #087f5b;
-      margin-bottom: 35px;
-    }
-
-    .feature-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .feature {
-      background: white;
-      padding: 30px 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
-    }
-
-    .feature h3 {
-      color: #087f5b;
-      margin-bottom: 12px;
-    }
-
-    .feature p {
-      color: #6b7280;
-      line-height: 1.6;
-    }
-
-    footer {
-      background: #064e3b;
-      color: white;
-      text-align: center;
-      padding: 25px;
-      margin-top: 30px;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 5px 8px;
-      }
-
-      .hero {
-        padding-top: 60px;
-        padding-bottom: 60px;
-      }
-
-      .hero h2 {
-        font-size: 34px;
-      }
-
-      .feature-list {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1160px); }
+      .topbar { display: none; }
+      .brand { min-width: 0; }
+      .brand small { display: none; }
+      .nav { min-height: 70px; }
+      .nav-links { top: 70px; }
+      .hero-inner { min-height: auto; padding: 65px 0 90px; }
+      .hero h1 { font-size: 2.55rem; }
+      .section { padding: 64px 0; }
+      .program-grid, .stats-grid, .footer-grid { grid-template-columns: 1fr; }
+      .stat { border-right: 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+      .stat:last-child { border-bottom: 0; }
+      .footer-grid > :first-child { grid-column: auto; }
+      .copyright { flex-direction: column; }
+      .hero-actions, .cta-actions { flex-direction: column; align-items: stretch; }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="brand">
-      <h1>Madrasah Ash-Shiddiqiyah</h1>
-      <p>Website Informasi dan Pelayanan Madrasah</p>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Website Resmi Madrasah Aliyah Manba'ul Ulum</span>
+      <div class="topbar-links">
+        <a href="#informasi">Informasi Madrasah</a>
+        <a href="#kontak">Kontak</a>
+      </div>
     </div>
+  </div>
 
-    <nav>
-      #berandaBeranda</a>
-      #profilProfil</a>
-      #programProgram</a>
-      #kontakKontak</a>
+  <header class="header">
+    <nav class="container nav" aria-label="Navigasi utama">
+      <a class="brand" href="#beranda" aria-label="Beranda MA Manba'ul Ulum">
+        <div class="brand-mark">MU</div>
+        <div>
+          <strong>MA Manba'ul Ulum</strong>
+          <small>Pondok Pesantren Asshiddiqiyah Jakarta</small>
+        </div>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#profil">Profil</a></li>
+        <li><a href="#keunggulan">Keunggulan</a></li>
+        <li><a href="#program">Program</a></li>
+        <li><a href="#informasi">Informasi</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+        <li><a class="btn btn-green" href="https://app.mamuashd.my.id">Masuk Aplikasi</a></li>
+      </ul>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="beranda">
-      <div class="hero-content">
-        <h2>Selamat Datang di Website Resmi Madrasah</h2>
+      <div class="container hero-inner">
+        <div>
+          <div class="hero-kicker">Pendidikan Madrasah Berbasis Pesantren</div>
+          <h1>Madrasah Aliyah <span>Manba'ul Ulum</span></h1>
+          <p class="hero-text">Pondok Pesantren Asshiddiqiyah Jakarta. Mengintegrasikan pendidikan madrasah dan pesantren untuk membentuk generasi berilmu, berakhlakul karimah, dan siap mengabdi kepada agama, bangsa, serta masyarakat.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#profil">Jelajahi Madrasah</a>
+            <a class="btn btn-outline" href="#informasi">Informasi Terbaru</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Informasi utama">
+          <span class="label">Selamat Datang</span>
+          <h2>Pusat Informasi dan Layanan Digital Madrasah</h2>
+          <p>Website ini menyajikan profil, program pendidikan, kegiatan, pengumuman, dan akses layanan administrasi madrasah.</p>
+          <div class="hero-list">
+            <div><span class="check">✓</span><span>Kurikulum nasional yang terintegrasi dengan pendidikan pesantren</span></div>
+            <div><span class="check">✓</span><span>Pembinaan akademik, keagamaan, karakter, dan kemandirian</span></div>
+            <div><span class="check">✓</span><span>Layanan informasi yang mudah diakses oleh masyarakat</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-        <p>
-          Website ini akan menjadi pusat informasi mengenai profil madrasah,
-          program pendidikan, berita, kegiatan, pengumuman, dan pelayanan
-          kepada santri serta wali santri.
-        </p>
+    <div class="container quick-info">
+      <div class="quick-grid">
+        <a class="quick-card" href="#informasi"><span class="quick-icon">01</span><span><small>Informasi</small><strong>Penerimaan Peserta Didik Baru</strong></span></a>
+        <a class="quick-card" href="#program"><span class="quick-icon">02</span><span><small>Akademik</small><strong>Program dan Kegiatan Madrasah</strong></span></a>
+        <a class="quick-card" href="https://app.mamuashd.my.id"><span class="quick-icon">03</span><span><small>Layanan Internal</small><strong>Masuk Aplikasi Administrasi</strong></span></a>
+      </div>
+    </div>
 
-        <div class="buttons">
-          #profil
-            Lihat Profil
-          </a>
-
-          https://app.mamuashd.my.id
-            Masuk Aplikasi
-          </a>
+    <section class="section" id="profil">
+      <div class="container welcome-grid">
+        <div class="photo-placeholder" aria-label="Tempat foto Kepala Madrasah">
+          <div class="inner">
+            <div class="initials">MU</div>
+            <h3>Foto Kepala Madrasah</h3>
+            <p>Bagian ini dapat diganti dengan foto resmi Kepala Madrasah atau foto gedung Madrasah Aliyah Manba'ul Ulum.</p>
+          </div>
+        </div>
+        <div>
+          <div class="eyebrow">Sambutan Kepala Madrasah</div>
+          <h2 class="section-title">Selamat Datang di Website Resmi MA Manba'ul Ulum</h2>
+          <p class="section-lead">Assalamu'alaikum warahmatullahi wabarakatuh.</p>
+          <p class="section-lead">Puji syukur ke hadirat Allah SWT. Website ini dihadirkan sebagai media informasi, komunikasi, dan pelayanan digital bagi peserta didik, orang tua, alumni, serta masyarakat. Madrasah Aliyah Manba'ul Ulum berkomitmen menyelenggarakan pendidikan yang memadukan keunggulan akademik dengan tradisi keilmuan pesantren.</p>
+          <p class="section-lead">Melalui pembinaan yang terarah, Madrasah Aliyah Manba'ul Ulum berupaya membentuk generasi yang berilmu, berakhlak, mandiri, dan mampu memberi manfaat bagi lingkungan.</p>
+          <div class="signature">
+            <strong>Nama Kepala Madrasah</strong>
+            <small>Kepala Madrasah Aliyah Manba'ul Ulum</small>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="features" id="profil">
-      <h2>Informasi Madrasah</h2>
+    <section class="stats" aria-label="Statistik madrasah">
+      <div class="container stats-grid">
+        <div class="stat"><strong>--</strong><span>Guru dan Tenaga Kependidikan</span></div>
+        <div class="stat"><strong>--</strong><span>Peserta Didik</span></div>
+        <div class="stat"><strong>--</strong><span>Rombongan Belajar</span></div>
+        <div class="stat"><strong>--</strong><span>Tahun Berdiri</span></div>
+      </div>
+    </section>
 
-      <div class="feature-list">
-        <article class="feature">
-          <h3>Profil Madrasah</h3>
-          <p>
-            Informasi mengenai sejarah, visi, misi, struktur, dan tenaga
-            pendidik madrasah.
-          </p>
-        </article>
+    <section class="section advantages" id="keunggulan">
+      <div class="container">
+        <div class="eyebrow">Mengapa Memilih Kami</div>
+        <h2 class="section-title">Pendidikan yang Utuh untuk Masa Depan</h2>
+        <p class="section-lead">Pembelajaran dirancang untuk mengembangkan pengetahuan, spiritualitas, karakter, kedisiplinan, dan kesiapan peserta didik menghadapi perkembangan zaman.</p>
+        <div class="cards-grid">
+          <article class="info-card"><div class="card-icon">A</div><h3>Akademik Berkualitas</h3><p>Pembelajaran terarah berdasarkan kurikulum madrasah untuk membangun kemampuan akademik dan kesiapan melanjutkan pendidikan.</p></article>
+          <article class="info-card"><div class="card-icon">P</div><h3>Tradisi Keilmuan Pesantren</h3><p>Pendidikan keislaman dan pembinaan kehidupan pesantren berjalan beriringan dengan pendidikan formal.</p></article>
+          <article class="info-card"><div class="card-icon">K</div><h3>Karakter dan Kedisiplinan</h3><p>Pembiasaan ibadah, adab, tanggung jawab, dan kemandirian menjadi bagian penting dalam proses pendidikan.</p></article>
+          <article class="info-card"><div class="card-icon">B</div><h3>Bahasa dan Komunikasi</h3><p>Penguatan kemampuan berbahasa dan berkomunikasi untuk memperluas wawasan serta kepercayaan diri peserta didik.</p></article>
+          <article class="info-card"><div class="card-icon">M</div><h3>Minat dan Bakat</h3><p>Kegiatan organisasi dan ekstrakurikuler menjadi ruang pengembangan potensi, kreativitas, dan kepemimpinan.</p></article>
+          <article class="info-card"><div class="card-icon">D</div><h3>Layanan Digital</h3><p>Informasi madrasah dan layanan administrasi dikembangkan secara bertahap agar lebih tertib, cepat, dan mudah diakses.</p></article>
+        </div>
+      </div>
+    </section>
 
-        <article class="feature" id="program">
-          <h3>Program Pendidikan</h3>
-          <p>
-            Informasi program pembelajaran, kegiatan santri, tahfiz,
-            dan pendidikan keagamaan.
-          </p>
-        </article>
+    <section class="section programs" id="program">
+      <div class="container">
+        <div class="eyebrow">Program Pendidikan</div>
+        <h2 class="section-title">Program dan Kegiatan Madrasah</h2>
+        <p class="section-lead">Program dikembangkan untuk menyeimbangkan capaian akademik, pendalaman keagamaan, pembentukan karakter, dan pengembangan potensi peserta didik.</p>
+        <div class="program-grid">
+          <article class="program"><h3>Program Akademik Madrasah</h3><p>Pembelajaran formal, pendampingan belajar, evaluasi, dan penguatan kompetensi akademik peserta didik.</p><a href="#">Pelajari program →</a></article>
+          <article class="program"><h3>Program Kepesantrenan</h3><p>Pembinaan ibadah, akhlak, kajian keislaman, dan pembiasaan kehidupan pesantren yang terstruktur.</p><a href="#">Pelajari program →</a></article>
+          <article class="program"><h3>Organisasi dan Kepemimpinan</h3><p>Wadah pembelajaran tanggung jawab, kerja sama, komunikasi, dan kepemimpinan peserta didik.</p><a href="#">Pelajari program →</a></article>
+          <article class="program"><h3>Ekstrakurikuler dan Prestasi</h3><p>Pengembangan minat, bakat, keterampilan, olahraga, seni, dan berbagai kegiatan pendukung prestasi.</p><a href="#">Pelajari program →</a></article>
+        </div>
+      </div>
+    </section>
 
-        <article class="feature" id="kontak">
-          <h3>Pelayanan Madrasah</h3>
-          <p>
-            Informasi pengumuman, jadwal kegiatan, kontak, dan pelayanan
-            administrasi madrasah.
-          </p>
-        </article>
+    <section class="section" id="informasi">
+      <div class="container">
+        <div class="eyebrow">Berita dan Informasi</div>
+        <h2 class="section-title">Informasi Terbaru Madrasah</h2>
+        <p class="section-lead">Bagian ini nanti dapat dihubungkan dengan Google Sheets atau Google Apps Script agar berita dan pengumuman diperbarui tanpa mengubah kode website.</p>
+        <div class="news-grid">
+          <article class="news-card"><div class="news-image">Tempat foto informasi PPDB</div><div class="news-body"><div class="news-meta">Pengumuman</div><h3>Informasi Penerimaan Peserta Didik Baru</h3><p>Informasi jadwal, persyaratan, alur pendaftaran, dan kontak pelayanan penerimaan peserta didik baru.</p></div></article>
+          <article class="news-card"><div class="news-image">Tempat foto kegiatan madrasah</div><div class="news-body"><div class="news-meta">Kegiatan</div><h3>Kegiatan Pendidikan dan Kepesantrenan</h3><p>Dokumentasi kegiatan pembelajaran, pembinaan, organisasi, dan agenda peserta didik.</p></div></article>
+          <article class="news-card"><div class="news-image">Tempat foto prestasi</div><div class="news-body"><div class="news-meta">Prestasi</div><h3>Prestasi Peserta Didik dan Madrasah</h3><p>Publikasi capaian akademik, keagamaan, olahraga, seni, serta berbagai bidang lainnya.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-inner">
+        <div><h2>Layanan Administrasi Madrasah</h2><p>Guru dan tenaga kependidikan dapat masuk ke aplikasi internal melalui alamat khusus yang telah disediakan.</p></div>
+        <div class="cta-actions"><a class="btn btn-primary" href="https://app.mamuashd.my.id">Masuk Aplikasi</a><a class="btn btn-outline" href="#kontak">Hubungi Madrasah</a></div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Madrasah Ash-Shiddiqiyah. Semua hak dilindungi.</p>
+  <footer class="footer" id="kontak">
+    <div class="container">
+      <div class="footer-grid">
+        <div><h3>MA Manba'ul Ulum</h3><p>Madrasah Aliyah Manba'ul Ulum Pondok Pesantren Asshiddiqiyah Jakarta. Website resmi untuk informasi, publikasi kegiatan, dan layanan digital madrasah.</p></div>
+        <div><h3>Tautan</h3><ul><li><a href="#profil">Profil Madrasah</a></li><li><a href="#program">Program Pendidikan</a></li><li><a href="#informasi">Berita dan Informasi</a></li><li><a href="https://app.mamuashd.my.id">Aplikasi Administrasi</a></li></ul></div>
+        <div><h3>Kontak</h3><ul><li>Alamat: Lengkapi alamat resmi madrasah</li><li>Telepon: Lengkapi nomor layanan</li><li>Email: Lengkapi email resmi</li><li>Jakarta, Indonesia</li></ul></div>
+      </div>
+      <div class="copyright"><span>© <span id="year"></span> Madrasah Aliyah Manba'ul Ulum. Semua hak dilindungi.</span><span>Pondok Pesantren Asshiddiqiyah Jakarta</span></div>
+    </div>
   </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
